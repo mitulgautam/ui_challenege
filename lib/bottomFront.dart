@@ -3,10 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class Bottom extends StatelessWidget {
-  final friendList = ['M', 'I', 'T', 'U', 'L', 'T', 'A', 'N', 'Y', 'A'];
+  final friendList = ['M', 'I', 'T', 'U', 'L'];
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
     return Column(
       children: <Widget>[
         Row(
@@ -42,7 +44,7 @@ class Bottom extends StatelessWidget {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 8.0),
+          padding: const EdgeInsets.only(left: 0.0, right: 8.0),
           child: Text(
             'Inset essential content to prevent clipping. In general, content should be centered and symmetrically inset so it looks great in..',
             style: TextStyle(
@@ -97,18 +99,19 @@ class Bottom extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) => _friends(
                 friendList[index],
                 Color((Random().nextDouble() * 0xFFFFFF).toInt() << 0)
-                    .withOpacity(1.0)),
+                    .withOpacity(1.0),
+                size),
           ),
         )
       ],
     );
   }
 
-  Widget _friends(String text, Color color) {
+  Widget _friends(String text, Color color, Size size) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(4.0),
       child: CircleAvatar(
-        minRadius: 32.0,
+        minRadius: size.width/10,
         child: Text(text),
         backgroundColor: color,
       ),

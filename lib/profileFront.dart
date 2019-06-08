@@ -14,7 +14,7 @@ class Front extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(left: 16.0, right: 16.0,top: 16.0),
+            margin: EdgeInsets.only(left: 16.0, right: 16.0, top: 24.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -49,7 +49,7 @@ class Front extends StatelessWidget {
           Text(
             "Target Gadget",
             style: TextStyle(
-                fontSize: 20.0,
+                fontSize: size.width / 24,
                 fontFamily: 'Google',
                 fontWeight: FontWeight.bold,
                 color: Colors.white),
@@ -57,7 +57,9 @@ class Front extends StatelessWidget {
           Text(
             "New Delhi, ND",
             style: TextStyle(
-                fontSize: 16.0, fontFamily: 'Google', color: Colors.white),
+                fontSize: size.width / 30,
+                fontFamily: 'Google',
+                color: Colors.white),
           ),
           Container(
             height: 64.0,
@@ -67,10 +69,10 @@ class Front extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                _hCard(Icons.notifications_none, 'Alerts', 3),
-                _hCard(Icons.favorite_border, 'Places', 12),
-                _hCard(Icons.image, 'Shots', 47),
-                _hCard(Icons.link, 'Friends', 25)
+                _hCard(Icons.notifications_none, 'Alerts', 3, size),
+                _hCard(Icons.favorite_border, 'Places', 12, size),
+                _hCard(Icons.image, 'Shots', 47, size),
+                _hCard(Icons.link, 'Friends', 25, size)
               ],
             ),
           )
@@ -79,21 +81,23 @@ class Front extends StatelessWidget {
     );
   }
 
-  Widget _hCard(IconData icon, String text, int count) {
+  Widget _hCard(IconData icon, String text, int count, Size size) {
     return Column(
       children: <Widget>[
         Icon(
           icon,
           color: Colors.white,
-          size: 40.0,
+          size: size.width / 12,
         ),
         Container(
-          height: 8.0,
+          height: size.width / 22,
         ),
         Text(
           text,
           style: TextStyle(
-              fontSize: 12.0, color: Colors.white, fontFamily: 'Google'),
+              fontSize: size.width / 36,
+              color: Colors.white,
+              fontFamily: 'Google'),
         ),
         Container(
           height: 4.0,
@@ -101,7 +105,7 @@ class Front extends StatelessWidget {
         Text(
           count.toString(),
           style: TextStyle(
-              fontSize: 14.0,
+              fontSize: size.width / 34,
               color: Colors.white,
               fontFamily: 'Google',
               fontWeight: FontWeight.bold),
